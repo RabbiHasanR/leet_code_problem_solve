@@ -40,3 +40,20 @@ x = 121
 
 solution = Solution()
 print(solution.isPalindrome(x))
+
+# without converting integer to string solution
+
+# class Solution:
+#     def isPalindrome(self, x: int) -> bool:
+#         temp=x
+#         rev=0
+#         while(x>0):
+#             dig=x%10
+#             rev=rev*10+dig
+#             x=x//10
+#         return temp==rev
+        
+# x = 121
+
+# solution = Solution()
+# print(solution.isPalindrome(x))
