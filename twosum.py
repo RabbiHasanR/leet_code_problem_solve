@@ -34,13 +34,27 @@
 
 
 
+# class Solution:
+#     def twoSum(self, nums, target):
+#         for i in range(0,len(nums)-1):
+#             for x in range(i+1, len(nums)):
+#                 if nums[i] + nums[x] == target:
+#                     return [i,x]
+
+
+# Another solution using hashmap and O(n) time complexity, O(n) space complexity
+
 class Solution:
     def twoSum(self, nums, target):
-        for i in range(0,len(nums)-1):
-            for x in range(i+1, len(nums)):
-                if nums[i] + nums[x] == target:
-                    return [i,x]
-
+        prevMap = {} # store all check num
+        
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in prevMap:
+                return [prevMap[diff], i]
+            else:
+                prevMap[n] = i
+        return
 # nums = list(map(int, input().split()))
 # target = int(input())
 nums = [2,7,11,15]
