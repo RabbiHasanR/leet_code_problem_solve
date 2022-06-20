@@ -24,6 +24,9 @@
 # 1 <= prices.length <= 105
 # 0 <= prices[i] <= 104
 
+# Time complexity for this solution is O(n)
+# Spcae complexity for this solution is O(1)
+
 class Solution:
     def maxProfit(self, prices):
         l,r = 0,1 # l=buy price index, r=sell price index
