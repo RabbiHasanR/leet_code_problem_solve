@@ -35,13 +35,22 @@
 # time complexity O(n)
 # space complexity O(1)
 
+# class Solution:
+#     def buildArray(self, nums):
+#         ans = [0] * (len(nums))
+        
+#         for i in range(len(nums)):
+#             ans[i] = nums[nums[i]]
+#         return ans
+
+
+# second solution
+# time complexity O(n)
+# space complexity O(1)
+
 class Solution:
     def buildArray(self, nums):
-        ans = [0] * (len(nums))
-        
-        for i in range(len(nums)):
-            ans[i] = nums[nums[i]]
-        return ans
+        return [nums[num] for num in nums]
 
 s = Solution()
 nums = [5,0,1,2,3,4]
