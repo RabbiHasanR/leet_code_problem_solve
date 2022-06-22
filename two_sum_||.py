@@ -33,19 +33,38 @@
 # -1000 <= target <= 1000
 # The tests are generated such that there is exactly one solution.
 
-# first solution
+# first solution (using dictionary)
+# time: O(n)
+# space: O(n)
+
+# class Solution:
+#     def twoSum(self, numbers, target: int):
+        
+#         prevHash = {}
+        
+#         for i, n in enumerate(numbers):
+#             diff = target - n
+#             if diff in prevHash:
+#                 return [prevHash[diff]+1, i+1]
+#             else:
+#                 prevHash[n] = i
+
+
+#second solution using two pointers
+# time: O(n)
+# space: O(1)
 
 class Solution:
     def twoSum(self, numbers, target: int):
-        
-        prevHash = {}
-        
-        for i, n in enumerate(numbers):
-            diff = target - n
-            if diff in prevHash:
-                return [prevHash[diff]+1, i+1]
+        left, right = 0, len(numbers)-1
+        while left < right:
+            sum_res = numbers[left] + numbers [right]
+            if sum_res == target:
+                return [left+1, right+1]
+            elif sum_res < target:
+                left += 1
             else:
-                prevHash[n] = i
+                right -= 1
 
 s = Solution()
 numbers = [2,7,11,15]
