@@ -67,6 +67,6 @@ class Solution:
                 right -= 1
 
 s = Solution()
-numbers = [2,7,11,15]
-target = 9
+numbers = [2,3,4]
+target = 6
 print(s.twoSum(numbers, target))
