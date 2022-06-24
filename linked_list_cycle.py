@@ -39,20 +39,33 @@
 # time: O(n)
 # space: O(n)
 
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
 
+# class Solution:
+#     def hasCycle(self, head: Optional[ListNode]) -> bool:
+#         next_data = []
+#         current_node = head
+#         hasC = False
+#         while current_node:
+#             if current_node.next in next_data:
+#                 hasC = True
+#                 break
+#             next_data.append(current_node.next)
+#             current_node = current_node.next
+#         return hasC
+
+# Second Solution using floyd's tortoise and hare algorithm
+# time: O(n)
+# space: O(1)
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        next_data = []
-        current_node = head
-        hasC = False
-        while current_node:
-            if current_node.next in next_data:
-                hasC = True
-                break
-            next_data.append(current_node.next)
-            current_node = current_node.next
-        return hasC
+        slow, first = head, head
+        while first and first.next:
+            slow = slow.next
+            first = first.next.next
+            if slow == first:
+                return True
+        return False

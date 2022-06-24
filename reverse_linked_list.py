@@ -46,7 +46,8 @@ class ListNode:
 #         return prev
 
 #second solution with recursion
-
+# time: O(n)
+# space: O(n)
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not head:
