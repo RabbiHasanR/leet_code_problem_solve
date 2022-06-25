@@ -46,8 +46,47 @@ class ListNode:
 
 # first_solution
 #  time: O(n2)
-#  space: O(1)        
+#  space: O(1)  
+
+      
+# class Solution:
+#     def merge(self, list1, list2):
+#         dummy = ListNode()
+#         tail = dummy
+#         while list1 and list2:
+#             if list1.val < list2.val:
+#                 tail.next = list1
+#                 list1 = list1.next
+#             else:
+#                 tail.next = list2
+#                 list2 = list2.next
+#             tail = tail.next
+#         if list1:
+#             tail.next = list1
+#         else:
+#             tail.next = list2
+#         return dummy.next
+    
+#     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+#         merge_list = ListNode()
+#         if len(lists):
+#             merge_list.next = lists[0]
+#             index = 1
+
+#             while index < len(lists):
+#                 temp_list = lists[index]
+#                 merge_list.next = self.merge(merge_list.next, temp_list)
+#                 index += 1
+#             return merge_list.next
+#         return merge_list.next
+
+
+# second solution
+# time: O(nlogn)
+# space: O(logn)
+
 class Solution:
+    
     def merge(self, list1, list2):
         dummy = ListNode()
         tail = dummy
@@ -66,14 +105,13 @@ class Solution:
         return dummy.next
     
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-        merge_list = ListNode()
-        if len(lists):
-            merge_list.next = lists[0]
-            index = 1
-
-            while index < len(lists):
-                temp_list = lists[index]
-                merge_list.next = self.merge(merge_list.next, temp_list)
-                index += 1
-            return merge_list.next
-        return merge_list.next
+        if not lists or len(lists) == 0:
+            return None
+        while len(lists) > 1:
+            merge_lists = []
+            for i in range(0, len(lists), 2):
+                list1 = lists[i]
+                list2 = lists[i + 1] if (i+1) < len(lists) else None
+                merge_lists.append(self.merge(list1, list2))
+            lists = merge_lists
+        return lists[0]
