@@ -47,18 +47,23 @@
 # time: O(n)
 # space: O(1)
 
-from this import s
 
+# class Solution:
+#     def finalValueAfterOperations(self, operations) -> int:
+#         X = 0
+#         for operation in operations:
+#             if operation in ["--X", "X--"]:
+#                 X-=1
+#             elif operation in ["++X","X++"]:
+#                 X+=1
+#         return X
 
+# second solution 
+# time: O(n)
+# space: O(1)
 class Solution:
     def finalValueAfterOperations(self, operations) -> int:
-        X = 0
-        for operation in operations:
-            if operation in ["--X", "X--"]:
-                X-=1
-            elif operation in ["++X","X++"]:
-                X+=1
-        return X
+        return sum(1 if "+" in operation else -1 for operation in operations)
         
 sol = Solution()
 print(sol.finalValueAfterOperations(["--X","X++","X++"]))
