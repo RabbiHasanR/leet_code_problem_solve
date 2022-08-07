@@ -39,15 +39,24 @@
 # time O(n)
 # space O(1)
 
+# class Solution:
+#     def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+#         max_candies = max(candies)
+#         for i in range(len(candies)):
+#             if candies[i]+extraCandies >= max_candies:
+#                 candies[i] = True
+#             else:
+#                 candies[i] = False
+#         return candies
+
+# second solution
+# time O(n)
+# space O(1)
+
 class Solution:
     def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
-        max_candies = max(candies)
-        for i in range(len(candies)):
-            if candies[i]+extraCandies >= max_candies:
-                candies[i] = True
-            else:
-                candies[i] = False
-        return candies
+        diff = max(candies) - extraCandies
+        return [candie >= diff for candie in candies]
 
 sol = Solution()
 candies = [2,3,5,1,3]
