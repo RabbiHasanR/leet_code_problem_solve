@@ -19,7 +19,7 @@
 # s consist of only digits and English letters.
 
 # first solution
-# time: O(n)
+# time: O(n^2)
 # space: O(1)
 
 class Solution:
