@@ -25,6 +25,10 @@
 
 # Follow up: Could you come up with a one-pass algorithm using only constant extra space?
 
+# time: O(n^2)
+# space: O(1)
+
+# solve using selection sort algorithm
 
 class Solution:
     def sortColors(self, nums) -> None:
