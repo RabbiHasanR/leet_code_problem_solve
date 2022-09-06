@@ -21,18 +21,20 @@
 # time: O(n^2)
 # space: O(1)
 
-# solve using selection sort algorithm but time limit exceed not excepted
+# solve using bubble sort algorithm but time limit exceed not excepted
+
 
 class Solution:
     def sortArray(self, nums: List[int]) -> List[int]:
         n = len(nums)
-        for i in range(0, n+1):
-            index_min = i
-            for j in range(i+1, n):
-                if nums[j] < nums[index_min]:
-                    index_min = j
-            if index_min != i:
-                nums[i], nums[index_min] = nums[index_min], nums[i]
+        for i in range(0, n):
+            is_already_sorted = True
+            for j in range(0, n-i-1):
+                if nums[j] > nums[j+1]:
+                    nums[j], nums[j+1] = nums[j+1], nums[j]
+                    is_already_sorted = False
+            if is_already_sorted:
+                break
         return nums
 
 s = Solution()

@@ -34,6 +34,9 @@
 # step 10: increase i = i + 1 go to step 2
 # step 11: L array value sort in acending order
 
+# time: O(n^2)
+# space: O(1)
+
 
 # selection sort implementation for acending order:
 
