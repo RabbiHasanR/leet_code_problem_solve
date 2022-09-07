@@ -28,7 +28,7 @@
 # time: O(n^2)
 # space: O(1)
 
-# solve using selection sort algorithm
+# solve using insertion sort algorithm
 
 
 class Solution:
