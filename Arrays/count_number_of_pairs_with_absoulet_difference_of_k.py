@@ -41,13 +41,45 @@
 
 # first solution
 
+# class Solution:
+#     def countKDifference(self, nums: List[int], k: int) -> int:
+#         count = 0
+#         for i in range(len(nums)):
+#             for j in range(len(nums)):
+#                 if nums[i] - nums[j] == k:
+#                     count += 1
+#         return count
+
+
+# second solution
+# time: O(n^2)
+# space: O(1)
+# class Solution:
+#     def countKDifference(self, nums: List[int], k: int) -> int:
+#         count = 0
+#         for i in range(len(nums)-1):
+#             for j in range(i+1,len(nums)):
+#                 if abs(nums[i] - nums[j]) == k:
+#                     count += 1
+#         return count
+
+
+# third solution using hasemap
+# time: O(n)
+# space: O(1)
 class Solution:
     def countKDifference(self, nums: List[int], k: int) -> int:
+        numMap = {}
         count = 0
+        
         for i in range(len(nums)):
-            for j in range(len(nums)):
-                if nums[i] - nums[j] == k:
-                    count += 1
+            if nums[i] not in numMap:
+                numMap[nums[i]] = 1
+            else:
+                numMap[nums[i]] += 1
+        for j in nums:
+            if j+k in numMap:
+                count += numMap[j+k]
         return count
 
 s = Solution()
