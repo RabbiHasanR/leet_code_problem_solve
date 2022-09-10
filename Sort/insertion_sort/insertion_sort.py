@@ -13,6 +13,8 @@
 # step 4: list L acending order a sajano ase
 
 
+# time: worst O(n^2) average: O(n^2) best: O(n)
+# space: O(1)
 
 def insertion_sort_asc(L):
     n = len(L)
