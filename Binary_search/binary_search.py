@@ -13,5 +13,22 @@ def binary_search(L,x):
     return -1
 
 
+# binary search with recursive function
+
+def binary_recursive_search(l,left,right,x):
+    if left > right:
+        return -1
+    mid = (left + right) // 2
+    if l[mid] == x:
+        return mid
+    
+    if l[mid] < x:
+        return binary_recursive_search(l,mid+1,right,x)
+    else:
+        return binary_recursive_search(l,left,mid-1,x)
+
 L = [1,2,3,4,5,6,7,8,9,10]
 print(binary_search(L,11))
+print(binary_recursive_search(L,0,len(L)-1,5))
+
+
