@@ -50,3 +50,30 @@ class Solution:
             high_index = sort_list.index(high)
             return sum(sort_list[low_index:high_index+1])
         return 0
+
+# second solution 
+# time: O(n)
+# space: O(n)
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def in_order(self,node,sort_list,low,high):
+        if node.left:
+            self.in_order(node.left,sort_list,low,high)
+        if low <= node.val <= high:
+            sort_list.append(node.val)
+        if node.right:
+            self.in_order(node.right,sort_list,low,high)
+            
+    def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
+        sort_list = []
+        if root:
+            self.in_order(root,sort_list,low,high)
+            return sum(sort_list)
+        return 0
+        
