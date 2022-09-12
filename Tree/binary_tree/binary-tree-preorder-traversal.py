@@ -35,17 +35,45 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution:
-    def pre_order(self,node,res):
-        res.append(node.val)
-        if node.left:
-            self.pre_order(node.left,res)
-        if node.right:
-            self.pre_order(node.right,res)
+# class Solution:
+#     def pre_order(self,node,res):
+#         res.append(node.val)
+#         if node.left:
+#             self.pre_order(node.left,res)
+#         if node.right:
+#             self.pre_order(node.right,res)
             
+#     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+#         res = []
+#         if root:
+#             self.pre_order(root,res)
+#         return res
+
+# second solution with iteratively
+# time: O(n)
+# space: O(n)
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         res = []
-        if root:
-            self.pre_order(root,res)
+        nStack = []
+        curr = root
+        while True:
+            if curr:
+                res.append(curr.val)
+                nStack.append(curr)
+                curr = curr.left
+            elif nStack:
+                curr = nStack.pop()
+                curr = curr.right
+            else:
+                break
         return res
+            
         

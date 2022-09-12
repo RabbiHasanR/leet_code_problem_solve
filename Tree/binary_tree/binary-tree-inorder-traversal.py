@@ -36,17 +36,45 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution:
-    def inorder(self,node,l):
-        if node.left:
-            self.inorder(node.left,l)
-        l.append(node.val)
-        if node.right:
-            self.inorder(node.right,l)
+# class Solution:
+#     def inorder(self,node,l):
+#         if node.left:
+#             self.inorder(node.left,l)
+#         l.append(node.val)
+#         if node.right:
+#             self.inorder(node.right,l)
             
+#     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+#         l = []
+#         if root:
+#             self.inorder(root,l)
+#         return l
+
+# second solution with iterative
+# time: O(n)
+# space: O(n)
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        l = []
-        if root:
-            self.inorder(root,l)
-        return l
+        res =[]
+        nStack = []
+        curr = root
+        while True:
+            if curr:
+                nStack.append(curr)
+                curr = curr.left
+            elif nStack:
+                curr = nStack.pop()
+                res.append(curr.val)
+                curr = curr.right
+            else:
+                break
+        return res
+
         
